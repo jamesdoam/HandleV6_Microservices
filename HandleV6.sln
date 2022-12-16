@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Handle.Services.ProductAPI"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{87711C77-7C20-4291-87E7-EC77108B4F9A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Handle.Web", "Handle.Web\Handle.Web.csproj", "{A93F6385-AE8C-48D0-8911-F213E0B18D6F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,6 +19,10 @@ Global
 		{84017C57-B0DF-4014-949B-5E556EDCD3D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{84017C57-B0DF-4014-949B-5E556EDCD3D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{84017C57-B0DF-4014-949B-5E556EDCD3D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A93F6385-AE8C-48D0-8911-F213E0B18D6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A93F6385-AE8C-48D0-8911-F213E0B18D6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A93F6385-AE8C-48D0-8911-F213E0B18D6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A93F6385-AE8C-48D0-8911-F213E0B18D6F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
