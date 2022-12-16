@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Handle.Services.ProductAPI.DbContexts;
+using Handle.Services.ProductAPI.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -36,7 +37,7 @@ namespace Handle.Services.ProductAPI
             IMapper mapper = MappingConfig.RegisterMaps().CreateMapper();
             services.AddSingleton(mapper);
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-
+            services.AddScoped<IProductRepository, ProductRepository>();
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
