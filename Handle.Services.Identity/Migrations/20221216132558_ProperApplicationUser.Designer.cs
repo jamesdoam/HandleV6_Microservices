@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Handle.Services.Identity.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221216125818_AddApplicationUser")]
-    partial class AddApplicationUser
+    [Migration("20221216132558_ProperApplicationUser")]
+    partial class ProperApplicationUser
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -42,6 +42,14 @@ namespace Handle.Services.Identity.Migrations
 
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("bit");
+
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("bit");

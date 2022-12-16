@@ -1,4 +1,5 @@
 ﻿using Handle.Services.Identity.DbContexts;
+using Handle.Services.Identity.Initializer;
 using Handle.Services.Identity.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -31,7 +32,6 @@ namespace Handle.Services.Identity
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultTokenProviders();
-
             var builder = services.AddIdentityServer(options =>
             {
                 options.Events.RaiseErrorEvents = true;
@@ -43,14 +43,13 @@ namespace Handle.Services.Identity
             .AddInMemoryApiScopes(SD.ApiScopes)
             .AddInMemoryClients(SD.Clients)
             .AddAspNetIdentity<ApplicationUser>();
-
+            services.AddScoped<IDbInitializer, DbInitializer>();
             builder.AddDeveloperSigningCredential();
-
             services.AddControllersWithViews();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IDbInitializer dbInitializer)
         {
             if (env.IsDevelopment())
             {
@@ -64,12 +63,10 @@ namespace Handle.Services.Identity
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
             app.UseRouting();
-
             app.UseIdentityServer();
             app.UseAuthorization();
-
+            dbInitializer.Initialize();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
