@@ -9,6 +9,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{87
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Handle.Web", "Handle.Web\Handle.Web.csproj", "{A93F6385-AE8C-48D0-8911-F213E0B18D6F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Handle.Services.Identity", "Handle.Services.Identity\Handle.Services.Identity.csproj", "{19C8E0D0-4F7B-468C-A55F-885BBA66FA0B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Fronend", "Fronend", "{3101A9A8-621A-4509-9999-645C8B4262C0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,12 +27,18 @@ Global
 		{A93F6385-AE8C-48D0-8911-F213E0B18D6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A93F6385-AE8C-48D0-8911-F213E0B18D6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A93F6385-AE8C-48D0-8911-F213E0B18D6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19C8E0D0-4F7B-468C-A55F-885BBA66FA0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19C8E0D0-4F7B-468C-A55F-885BBA66FA0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19C8E0D0-4F7B-468C-A55F-885BBA66FA0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19C8E0D0-4F7B-468C-A55F-885BBA66FA0B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{84017C57-B0DF-4014-949B-5E556EDCD3D6} = {87711C77-7C20-4291-87E7-EC77108B4F9A}
+		{A93F6385-AE8C-48D0-8911-F213E0B18D6F} = {3101A9A8-621A-4509-9999-645C8B4262C0}
+		{19C8E0D0-4F7B-468C-A55F-885BBA66FA0B} = {87711C77-7C20-4291-87E7-EC77108B4F9A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3BE03D82-AFF6-44B6-90D8-AFF58A8419A1}
