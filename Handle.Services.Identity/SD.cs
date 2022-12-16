@@ -1,4 +1,5 @@
-﻿using Duende.IdentityServer.Models;
+﻿using Duende.IdentityServer;
+using Duende.IdentityServer.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,7 +22,7 @@ namespace Handle.Services.Identity
 
         public static IEnumerable<ApiScope> ApiScopes =>
             new List<ApiScope> {
-                new ApiScope("Handle", "Handle Server"),
+                new ApiScope("handle", "Handle Server"),
                 new ApiScope(name: "read",   displayName: "Read your data."),
                 new ApiScope(name: "write",  displayName: "Write your data."),
                 new ApiScope(name: "delete", displayName: "Delete your data.")
@@ -36,6 +37,22 @@ namespace Handle.Services.Identity
                     ClientSecrets= { new Secret("secret".Sha256())},
                     AllowedGrantTypes = GrantTypes.ClientCredentials,
                     AllowedScopes={ "read", "write","profile"}
+                },
+                new Client
+                {
+                    ClientId="handle",
+                    ClientSecrets= { new Secret("secret".Sha256())},
+                    AllowedGrantTypes = GrantTypes.Code,
+                    //Use the URL of the WebClient project here!!!!
+                    RedirectUris={ "https://localhost:7137/signin-oidc" },
+                    PostLogoutRedirectUris={"https://localhost:7137/signout-callback-oidc" },
+                    AllowedScopes=new List<string>
+                    {
+                        IdentityServerConstants.StandardScopes.OpenId,
+                        IdentityServerConstants.StandardScopes.Profile,
+                        IdentityServerConstants.StandardScopes.Email,
+                        "handle" //same as the ApiScope above. 
+                    }
                 },
 
             };
